@@ -47,6 +47,9 @@ extension ResponsiveExtension on num {
 
   ///This method is used to set text font size according to Viewport
   double get fSize => adaptSize;
+  double get r {
+    return adaptSize / 2;
+  }
 }
 
 extension FormatExtension on double {
