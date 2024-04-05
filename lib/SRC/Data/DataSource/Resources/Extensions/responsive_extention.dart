@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 // This functions are responsible to make UI responsive across all the mobile devices.
 
-MediaQueryData mediaQueryData = MediaQueryData.fromView(ui.FlutterView as ui.FlutterView);
+MediaQueryData mediaQueryData =
+    MediaQueryData.fromView(ui.FlutterView as ui.FlutterView);
 
 // These are the Viewport values of your Figma Design.
 // These are used in the code as a reference to create your UI Responsively.
@@ -26,22 +27,32 @@ extension ResponsiveExtension on num {
     return screenHeight;
   }
 
-  ///This method is used to set padding/margin (for the left and Right side) & width of the screen or widget according to the Viewport width.
-  double get h => ((this * _width) / FIGMA_DESIGN_WIDTH);
+   get sh =>
+     this * _height;
+  get sw =>
+      this * _width;
 
+///symmetric  horizontal
+  ///This method is used to set padding/margin (for the left and Right side) & width of the screen or widget according to the Viewport width.
+  double get w => ((this * _width) / FIGMA_DESIGN_WIDTH);
+
+  ///symmetric vertical
   ///This method is used to set padding/margin (for the top and bottom side) & height of the screen or widget according to the Viewport height.
-  double get v =>
+  double get h =>
       (this * _height) / (FIGMA_DESIGN_HEIGHT - FIGMA_DESIGN_STATUS_BAR);
 
-  ///This method is used to set smallest px in image height and width
-  double get adaptSize {
-    var height = v;
-    var width = h;
+  ///This method is used to set smallest px in image height and width [[rsa]] responsive size  adjust
+  double get rSA {
+    var height = h;
+    var width = w;
     return height < width ? height.toDoubleValue() : width.toDoubleValue();
   }
 
   ///This method is used to set text font size according to Viewport
-  double get fSize => adaptSize;
+  double get fS => rSA;
+  double get r {
+    return rSA / 2;
+  }
 }
 
 extension FormatExtension on double {

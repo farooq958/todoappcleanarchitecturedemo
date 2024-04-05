@@ -7,6 +7,7 @@ import 'app_preferences.dart';
 mixin AppInitializer {
    Future init() async {
   _user();
+
   Data().registerServices();
 
   }

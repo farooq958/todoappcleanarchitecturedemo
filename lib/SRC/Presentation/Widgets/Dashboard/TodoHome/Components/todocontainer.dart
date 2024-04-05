@@ -1,10 +1,6 @@
 import 'dart:developer';
 
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/imports.dart';
-import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/text_styles.dart';
-import 'package:todoappcleanarchitecturedemo/SRC/Domain/Model/todomodel.dart';
-import 'package:todoappcleanarchitecturedemo/SRC/Presentation/Common/app_text.dart';
-import 'package:todoappcleanarchitecturedemo/SRC/Presentation/Common/display_images.dart';
 
 class TodoContainer extends StatelessWidget {
   const TodoContainer({super.key,  this.todo, this.dismissedCalled});

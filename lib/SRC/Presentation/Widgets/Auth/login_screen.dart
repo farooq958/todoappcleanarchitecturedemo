@@ -4,6 +4,8 @@ import 'package:todoappcleanarchitecturedemo/SRC/Application/Services/NavigatorS
 import 'package:todoappcleanarchitecturedemo/SRC/Data/AppData/app_preferences.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/AppData/data.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/Extensions/extensions.dart';
+import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/Extensions/responsive_extention.dart';
+import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/colors_pallete.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/strings.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/text_styles.dart';
 import 'dart:convert';
@@ -22,14 +24,16 @@ class _UserFormState extends State<UserForm> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   @override
+  @override
   void initState() {
     log("App User >> ${Data.app.user?.name}");
-
+    // TODO: implement initState
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    log("Here23: ${2.sh}");
     return Scaffold(
       appBar: AppBar(
         title: const AppText(
@@ -52,7 +56,6 @@ class _UserFormState extends State<UserForm> {
               hintText: 'Add  Email',
               textInputType: TextInputType.text,
             ),
-            12.y,
             Center(
               child: ElevatedButton(
                 onPressed: _submit,
@@ -86,7 +89,26 @@ class _UserFormState extends State<UserForm> {
 
       print(userModel
           .toJson()); // For demonstration, print the JSON representation
-    } else {}
+    } else {
+      /// Show an error message if any field is empty
+      // showDialog(
+      //   context: context,
+      //   builder: (context) {
+      //     return AlertDialog(
+      //       title: Text('Error'),
+      //       content: Text('Please fill in all fields.'),
+      //       actions: <Widget>[
+      //         TextButton(
+      //           onPressed: () {
+      //             Navigator.of(context).pop();
+      //           },
+      //           child: Text('OK'),
+      //         ),
+      //       ],
+      //     );
+      //   },
+      // );
+    }
   }
 }
 
