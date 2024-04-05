@@ -1,5 +1,3 @@
-
-
 import 'package:todoappcleanarchitecturedemo/SRC/Domain/Model/user_model.dart';
 
 mixin UserData {
