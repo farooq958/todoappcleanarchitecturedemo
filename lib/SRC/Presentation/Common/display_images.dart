@@ -4,9 +4,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/colors_pallete.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/imports.dart';
-import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/text_styles.dart';
 
-import 'app_text.dart';
 
 class DisplayFileImage extends StatelessWidget {
   final String fileImage;

@@ -42,7 +42,7 @@ final TextEditingController nameController=TextEditingController();
                      images = await  Data.app.servicePickerLocator<PickFile>().pickImage();
                         if(images.isNotEmpty)
                           {
-                            MethodWidgets.instance.snackBar(context,text: 'Images Selected > ${images?.length}');
+                            MethodWidgets.instance.snackBar(context,text: 'Images Selected > ${images.length}');
                           }
                      setState(() {
 
@@ -60,10 +60,10 @@ final TextEditingController nameController=TextEditingController();
               child: ListView.separated(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: images!.length,
+                itemCount: images.length,
                 itemBuilder: (context, index) {
                   return DisplayFileImage(
-                    fileImage: images![index].toString(),
+                    fileImage: images[index].toString(),
                     onDeleteTap: () {
 
                     },

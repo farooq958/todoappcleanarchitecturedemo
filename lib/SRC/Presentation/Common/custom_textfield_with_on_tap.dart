@@ -1,10 +1,7 @@
 
-import 'package:todoappcleanarchitecturedemo/SRC/Data/AppData/data.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/colors_pallete.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/imports.dart';
-import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/text_styles.dart';
 
-import 'app_text.dart';
 
 class CustomTextFieldWithOnTap extends StatefulWidget {
   final TextEditingController controller;
@@ -36,7 +33,7 @@ class CustomTextFieldWithOnTap extends StatefulWidget {
   final EdgeInsets? contentPadding;
 
   const CustomTextFieldWithOnTap(
-      {Key? key,
+      {super.key,
       required this.controller,
       required this.hintText,
       this.obscureText = false,
@@ -63,8 +60,7 @@ class CustomTextFieldWithOnTap extends StatefulWidget {
       this.height,
       this.filledColor,
       this.hintStyle,
-      this.isState})
-      : super(key: key);
+      this.isState});
 
   final double? borderRadius;
 
@@ -98,7 +94,7 @@ class _CustomTextFieldWithOnTapState extends State<CustomTextFieldWithOnTap> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8  ,
                     )
                   ],
@@ -204,7 +200,7 @@ class _CustomTextFieldWithOnTapState extends State<CustomTextFieldWithOnTap> {
                         borderRadius: BorderRadius.circular(
                           widget.borderRadius ?? 12,
                         ),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.red,
                           width: 0.4,
                         ),
@@ -223,7 +219,7 @@ class _CustomTextFieldWithOnTapState extends State<CustomTextFieldWithOnTap> {
                         borderRadius: BorderRadius.circular(
                           widget.borderRadius ?? 12 ,
                         ),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: AppColors.primaryColor,
                           width: 0.4  ,
                         ),
@@ -234,7 +230,7 @@ class _CustomTextFieldWithOnTapState extends State<CustomTextFieldWithOnTap> {
                         borderRadius: BorderRadius.circular(
                           widget.borderRadius ?? 12 ,
                         ),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           width: 0.4  ,
                           color: AppColors.lightGreyColor,
                         ),
@@ -283,7 +279,7 @@ class CustomTextFieldWithOnTap2 extends StatelessWidget {
   final EdgeInsets? contentPadding;
 
   const CustomTextFieldWithOnTap2(
-      {Key? key,
+      {super.key,
       required this.controller,
       required this.hintText,
       this.obscureText = false,
@@ -307,8 +303,7 @@ class CustomTextFieldWithOnTap2 extends StatelessWidget {
       this.focusNode,
       this.hintTextColor,
       this.borderRadius,
-      this.height})
-      : super(key: key);
+      this.height});
 
   final double? borderRadius;
 
@@ -334,7 +329,7 @@ class CustomTextFieldWithOnTap2 extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8  ,
                     )
                   ],

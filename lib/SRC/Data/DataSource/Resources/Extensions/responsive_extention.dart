@@ -55,6 +55,6 @@ extension ResponsiveExtension on num {
 extension FormatExtension on double {
   /// Return a [double] value with formatted according to provided fractionDigits
   double toDoubleValue({int fractionDigits = 2}) {
-    return double.parse(this.toStringAsFixed(fractionDigits));
+    return double.parse(toStringAsFixed(fractionDigits));
   }
 }
