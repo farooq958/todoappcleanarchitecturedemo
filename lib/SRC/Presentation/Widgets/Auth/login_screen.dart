@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Application/Services/NavigatorService/navigator_service.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/AppData/app_preferences.dart';
@@ -8,7 +7,6 @@ import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/Exten
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/strings.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/text_styles.dart';
 import 'dart:convert';
-
 import 'package:todoappcleanarchitecturedemo/SRC/Presentation/Common/app_text.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Presentation/Common/custom_textfield_with_on_tap.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Presentation/Widgets/Dashboard/TodoHome/todo_home.dart';
@@ -24,6 +22,7 @@ class _UserFormState extends State<UserForm> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   @override
+  @override
   void initState() {
     log("App User >> ${Data.app.user?.name}");
     // TODO: implement initState
@@ -32,7 +31,7 @@ class _UserFormState extends State<UserForm> {
 
   @override
   Widget build(BuildContext context) {
-    log("Here23: ${2.getheight()}");
+    log("Here23: ${2.sh}");
     return Scaffold(
       appBar: AppBar(
         title: const AppText(
