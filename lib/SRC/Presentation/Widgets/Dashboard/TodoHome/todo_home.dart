@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/imports.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/strings.dart';
-import 'package:todoappcleanarchitecturedemo/SRC/Domain/Model/todomodel.dart';
 
 import 'Components/addDataForm.dart';
 import 'Components/todocontainer.dart';

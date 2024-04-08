@@ -2,9 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/colors_pallete.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/imports.dart';
-import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/text_styles.dart';
 
-import 'app_text.dart';
 
 class MethodWidgets {
   MethodWidgets._private();
@@ -158,7 +156,7 @@ class MethodWidgets {
 
       /// [insetAnimationDuration] count unit is Milli Seconds
       int insetAnimationDuration = 100}) {
-    Dialog _dialog = Dialog(
+    Dialog dialog = Dialog(
       backgroundColor: bgColor ?? Theme.of(context).cardColor,
       elevation: elevation,
       alignment: alignment,
@@ -173,6 +171,6 @@ class MethodWidgets {
     showDialog(
         context: context,
         barrierDismissible: clickOutSideClose,
-        builder: (BuildContext context) => _dialog);
+        builder: (BuildContext context) => dialog);
   }
 }
