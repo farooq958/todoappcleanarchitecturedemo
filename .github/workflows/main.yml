@@ -1,5 +1,5 @@
 on:
-  release:
+  merge_group:
     branches:
       - master
 name: Test, Build and Release apk
@@ -15,7 +15,7 @@ jobs:
           java-version: '17.0.7'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.2.5'
+          flutter-version: '3.19.0'
       - run: flutter pub get
       #- run: flutter test
       - run: flutter build apk --release
