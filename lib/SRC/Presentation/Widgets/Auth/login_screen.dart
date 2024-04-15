@@ -58,7 +58,7 @@ class _UserFormState extends State<UserForm> {
               child: ElevatedButton(
                 onPressed: _submit,
                 child: AppText(
-                  'Submit',
+                  'Send',
                   style: Styles.circularStdRegular(context),
                 ),
               ),
