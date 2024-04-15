@@ -48,7 +48,7 @@ class _TodoHomeState extends State<TodoHome> {
                           return TodoContainer(
                             todo: todoVal[index],
                             dismissedCalled: () {
-                              log("called the dismissied");
+                              log("called the dismissed");
                               removeItem(index);
                             },
                           );
