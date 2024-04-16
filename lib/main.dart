@@ -3,6 +3,7 @@ import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/Exten
 import 'package:todoappcleanarchitecturedemo/SRC/Presentation/Widgets/Auth/login_screen.dart';
 
 import 'SRC/Data/AppData/data.dart';
+import 'SRC/Presentation/Widgets/Dashboard/TodoHome/todo_home.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const UserForm(),
+      home: const TodoHome(),
     );
   }
 }
