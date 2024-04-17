@@ -39,6 +39,8 @@ dependencies:
   get_it: any
   shared_preferences:
   page_transition:
+  firebase_core: ^2.27.0
+  firebase_crashlytics: ^3.4.18
 
 dev_dependencies:
   flutter_test:
