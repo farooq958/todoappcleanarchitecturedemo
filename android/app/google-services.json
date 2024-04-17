@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "189095188345",
+    "project_id": "crashoooo",
+    "storage_bucket": "crashoooo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189095188345:android:fcc3693a51205bd12041a8",
+        "android_client_info": {
+          "package_name": "com.example.todoappcleanarchitecturedemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlNMCCvh0z0YdPdBkjonlGjEiWxd9R5y8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
