@@ -1,14 +1,28 @@
+import 'dart:developer';
+import 'dart:ui';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/Extensions/responsive_extention.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Presentation/Widgets/Auth/login_screen.dart';
+import 'package:todoappcleanarchitecturedemo/SRC/Presentation/Widgets/Dashboard/TodoHome/todo_home.dart';
+import 'package:todoappcleanarchitecturedemo/firebase_options.dart';
 
 import 'SRC/Data/AppData/data.dart';
 import 'SRC/Presentation/Widgets/Dashboard/TodoHome/todo_home.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Data.app.init();
-
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
   runApp(const MyApp());
 }
 
