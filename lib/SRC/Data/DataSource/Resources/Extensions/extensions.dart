@@ -1,6 +1,7 @@
 
 
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/imports.dart';
+import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/strings.dart';
 
 extension CustomSizedBoxExt on num {
   SizedBox get x => SizedBox(width: toDouble());
@@ -244,3 +245,116 @@ extension StringExt2 on int {
     }
   }
 }
+extension PaddingExtension on Widget {
+  Widget pad(EdgeInsets padding) => Padding(padding: padding, child: this);
+  Widget padAll(double value) => pad(EdgeInsets.all(value));
+  Widget padHorizontal(double value) => pad(EdgeInsets.symmetric(horizontal: value));
+  Widget padVertical(double value) => pad(EdgeInsets.symmetric(vertical: value));
+}
+extension GestureExtension on Widget {
+
+  Widget  onTapped({required void Function() onTap})=>GestureDetector(onTap: onTap,child: this,);
+
+  // Double tap gesture
+  Widget onDoubleTapped({required void Function() onDoubleTap}) =>
+      GestureDetector(
+        onDoubleTap: onDoubleTap,
+        child: this,
+      );
+
+  // Long press gesture
+  Widget onLongPress({required void Function() onLongPress}) =>
+      GestureDetector(
+        onLongPress: onLongPress,
+        child: this,
+      );
+
+  // Drag gesture
+  Widget onDrag({required void Function(DragStartDetails details) onDrag}) =>
+      GestureDetector(
+        onPanStart: onDrag,
+        child: this,
+      );
+
+  // Drag update gesture (for tracking drag movement)
+  Widget onDragUpdate(
+      {required void Function(DragUpdateDetails details) onDragUpdate}) =>
+      GestureDetector(
+        onPanUpdate: onDragUpdate,
+        child: this,
+      );
+
+  // Drag end gesture
+  Widget onDragEnd({required void Function(DragEndDetails details) onDragEnd}) =>
+      GestureDetector(
+        onPanEnd: onDragEnd,
+        child: this,
+      );
+
+
+}
+extension MarginExtension on Widget {
+  Widget withMargin(EdgeInsets margin) => Container(
+    margin: margin,
+    child: this,
+  );
+  Widget marginAll(double value) => withMargin(EdgeInsets.all(value));
+  Widget marginHorizontal(double value) => withMargin(EdgeInsets.symmetric(horizontal: value));
+  Widget marginVertical(double value) => withMargin(EdgeInsets.symmetric(vertical: value));
+}
+extension TextExtension on String {
+  AppText toText({TextStyle? style,BuildContext? context}) => AppText(this, style: style??Styles.circularStdRegular(context!));
+}
+extension ContainerSizeExtension on num {
+ // Container get cH => sized(height: toDouble());
+  //Container get cW => sized(width: toDouble());
+
+  Container cH({
+    double? width,
+    double? height,
+    Color? color,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
+    Border? border,
+    Decoration? decoration,
+    Widget? child,
+  
+  
+  }
+ 
+  
+  ) {
+    return Container(
+      width: width ?? toDouble(),
+      height: height ?? toDouble(),
+      color: color,
+      margin: margin,
+      padding: padding,
+      decoration: decoration,
+      child: child,
+    );
+  }
+}
+
+
+class testingextensions extends StatelessWidget {
+  const testingextensions({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Column(children: [
+
+      AppStrings.welcome.toText(context: context).marginAll(30).onTapped(onTap: (){
+
+      }),
+      
+
+
+    ],);
+  }
+}
+
+
+
+
+

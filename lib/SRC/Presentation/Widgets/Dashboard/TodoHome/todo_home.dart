@@ -5,6 +5,7 @@ import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/impor
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/strings.dart';
 
 import 'Components/addDataForm.dart';
+import 'Components/dotted_widget.dart';
 import 'Components/todocontainer.dart';
 
 class TodoHome extends StatefulWidget {
@@ -18,13 +19,7 @@ class _TodoHomeState extends State<TodoHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: AppText(
-      //     "${AppStrings.welcome} ${Data.app.user?.name}",
-      //     style: const TextStyle(),
-      //   ),
-      //   centerTitle: true,
-      // ),
+     
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add Todo',
         onPressed: () async {
@@ -35,6 +30,7 @@ class _TodoHomeState extends State<TodoHome> {
         },
         child: const Icon(Icons.add),
       ),
+
 
       body: Column(
         children: [
@@ -52,14 +48,15 @@ class _TodoHomeState extends State<TodoHome> {
             ),
           ),
         ],
+          
+          ],
+        ),
+
       ),
     );
   }
 
-  // void removeItem(int index) {
-  //   TodoController.todoController.value.removeAt(index);
-  //   TodoController.todoController.notifyListeners();
-  // }
+
 }
 
 class CustomDotMaker extends CustomPainter {
