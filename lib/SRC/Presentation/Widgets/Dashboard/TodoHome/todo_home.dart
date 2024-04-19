@@ -49,11 +49,11 @@ class _TodoHomeState extends State<TodoHome> {
           ),
         ],
           
-          ],
+
         ),
 
-      ),
-    );
+      );
+
   }
 
 
