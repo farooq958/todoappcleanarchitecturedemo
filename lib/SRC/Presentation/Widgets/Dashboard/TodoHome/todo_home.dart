@@ -1,5 +1,13 @@
 import 'dart:developer';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/imports.dart';
+<<<<<<< HEAD
+=======
+import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/strings.dart';
+
+import 'Components/addDataForm.dart';
+import 'Components/dotted_widget.dart';
+import 'Components/todocontainer.dart';
+>>>>>>> d25f6bdffffdc1f48413b83ed88ea452903a64b2
 
 class TodoHome extends StatefulWidget {
   const TodoHome({super.key});
@@ -20,13 +28,7 @@ class _TodoHomeState extends State<TodoHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: AppText(
-      //     "${AppStrings.welcome} ${Data.app.user?.name}",
-      //     style: const TextStyle(),
-      //   ),
-      //   centerTitle: true,
-      // ),
+     
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add Todo',
         onPressed: () async {
@@ -37,6 +39,7 @@ class _TodoHomeState extends State<TodoHome> {
         },
         child: const Icon(Icons.add),
       ),
+
 
       body: Column(
         children: [
@@ -52,15 +55,23 @@ class _TodoHomeState extends State<TodoHome> {
             ),
           ),
         ],
+          
+          ],
+        ),
+
       ),
     );
   }
 
+<<<<<<< HEAD
   void changeval() async {
     await Future.delayed(const Duration(milliseconds: 200));
     i.value = i.value < 200 ? i.value + 10 : 1;
     changeval();
   }
+=======
+
+>>>>>>> d25f6bdffffdc1f48413b83ed88ea452903a64b2
 }
 
 class CustomPainterWithHitTesting extends CustomPainter {
