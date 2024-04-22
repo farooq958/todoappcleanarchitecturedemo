@@ -1,13 +1,5 @@
 import 'dart:developer';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/imports.dart';
-<<<<<<< HEAD
-=======
-import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/strings.dart';
-
-import 'Components/addDataForm.dart';
-import 'Components/dotted_widget.dart';
-import 'Components/todocontainer.dart';
->>>>>>> d25f6bdffffdc1f48413b83ed88ea452903a64b2
 
 class TodoHome extends StatefulWidget {
   const TodoHome({super.key});
@@ -28,7 +20,13 @@ class _TodoHomeState extends State<TodoHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
+      // appBar: AppBar(
+      //   title: AppText(
+      //     "${AppStrings.welcome} ${Data.app.user?.name}",
+      //     style: const TextStyle(),
+      //   ),
+      //   centerTitle: true,
+      // ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add Todo',
         onPressed: () async {
@@ -39,7 +37,6 @@ class _TodoHomeState extends State<TodoHome> {
         },
         child: const Icon(Icons.add),
       ),
-
 
       body: Column(
         children: [
@@ -55,23 +52,15 @@ class _TodoHomeState extends State<TodoHome> {
             ),
           ),
         ],
-          
-          ],
-        ),
-
       ),
     );
   }
 
-<<<<<<< HEAD
   void changeval() async {
     await Future.delayed(const Duration(milliseconds: 200));
     i.value = i.value < 200 ? i.value + 10 : 1;
     changeval();
   }
-=======
-
->>>>>>> d25f6bdffffdc1f48413b83ed88ea452903a64b2
 }
 
 class CustomPainterWithHitTesting extends CustomPainter {
@@ -256,37 +245,37 @@ class CustomDotMaker extends CustomPainter {
       }
     }
 
-    // while (ofxTop.dx < size.width) {
-    //   path.moveTo(ofxTop.dx, ofxTop.dy);
-    //   if (ofxTop.dx + dashedWidth + gap > size.width) {
-    //     path.lineTo(size.width, ofxTop.dy);
-    //     ofxTop = Offset(ofxTop.dx + dashedWidth + gap, ofxTop.dy);
-    //   } else {
-    //     path.lineTo(ofxTop.dx + dashedWidth, ofxTop.dy);
-    //     ofxTop = Offset(ofxTop.dx + dashedWidth + gap, ofxTop.dy);
-    //   }
-    // }
+    while (ofxTop.dx < size.width) {
+      path.moveTo(ofxTop.dx, ofxTop.dy);
+      if (ofxTop.dx + dashedWidth + gap > size.width) {
+        path.lineTo(size.width, ofxTop.dy);
+        ofxTop = Offset(ofxTop.dx + dashedWidth + gap, ofxTop.dy);
+      } else {
+        path.lineTo(ofxTop.dx + dashedWidth, ofxTop.dy);
+        ofxTop = Offset(ofxTop.dx + dashedWidth + gap, ofxTop.dy);
+      }
+    }
 
-    // while (ofxRight.dy < size.height) {
-    //   path.moveTo(ofxRight.dx, ofxRight.dy);
-    //   if (ofxRight.dy + dashedWidth + gap > size.height) {
-    //     path.lineTo(ofxRight.dx, size.height);
-    //     ofxRight = Offset(ofxRight.dx, ofxRight.dy + dashedWidth + gap);
-    //   } else {
-    //     path.lineTo(ofxRight.dx, ofxRight.dy + dashedWidth);
-    //     ofxRight = Offset(ofxRight.dx, ofxRight.dy + dashedWidth + gap);
-    //   }
-    // }
-    // while (ofxBottom.dx < size.width) {
-    //   path.moveTo(ofxBottom.dx, ofxBottom.dy);
-    //   if (ofxBottom.dx + dashedWidth + gap > size.width) {
-    //     path.lineTo(size.width, ofxBottom.dy);
-    //     ofxBottom = Offset(ofxBottom.dx + dashedWidth + gap, ofxBottom.dy);
-    //   } else {
-    //     path.lineTo(ofxBottom.dx + dashedWidth, ofxBottom.dy);
-    //     ofxBottom = Offset(ofxBottom.dx + dashedWidth + gap, ofxBottom.dy);
-    //   }
-    // }
+    while (ofxRight.dy < size.height) {
+      path.moveTo(ofxRight.dx, ofxRight.dy);
+      if (ofxRight.dy + dashedWidth + gap > size.height) {
+        path.lineTo(ofxRight.dx, size.height);
+        ofxRight = Offset(ofxRight.dx, ofxRight.dy + dashedWidth + gap);
+      } else {
+        path.lineTo(ofxRight.dx, ofxRight.dy + dashedWidth);
+        ofxRight = Offset(ofxRight.dx, ofxRight.dy + dashedWidth + gap);
+      }
+    }
+    while (ofxBottom.dx < size.width) {
+      path.moveTo(ofxBottom.dx, ofxBottom.dy);
+      if (ofxBottom.dx + dashedWidth + gap > size.width) {
+        path.lineTo(size.width, ofxBottom.dy);
+        ofxBottom = Offset(ofxBottom.dx + dashedWidth + gap, ofxBottom.dy);
+      } else {
+        path.lineTo(ofxBottom.dx + dashedWidth, ofxBottom.dy);
+        ofxBottom = Offset(ofxBottom.dx + dashedWidth + gap, ofxBottom.dy);
+      }
+    }
     canvas.drawPath(path, paint);
   }
 
