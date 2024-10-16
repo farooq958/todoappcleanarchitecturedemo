@@ -53,7 +53,8 @@ class _DottedBorderPainter extends CustomPainter {
     final Paint paint = Paint()
       ..color = color
       ..strokeWidth = strokeWidth
-      ..style = PaintingStyle.stroke;
+      ..style = PaintingStyle.stroke
+    ..strokeWidth=5;
 
     final Path path = Path();
     path.moveTo(0, 0);
@@ -69,7 +70,7 @@ double totalGap=dashGap + dashSpace;
 
     while (distance < (size.width)) {
       path.moveTo(distance, 0);
-
+      //path.lineTo(distance , 0);
 if(distance+totalGap > (size.width))
   {
     // print(distance);
@@ -82,6 +83,10 @@ if(distance+totalGap > (size.width))
     path.lineTo(size.width, 0);
   }
 else{
+  if(distance==0)
+{
+ // path.quadraticBezierTo(10, 0, 0, 10);
+}
   path.lineTo(distance + dashGap, 0);
 }
 
@@ -131,6 +136,8 @@ distance += totalGap;
         path.lineTo(size.width, size.height);
       }
       else {
+
+       // if(distance+totalGap )
         path.lineTo(distance + dashGap, size.height);
       }
       distance += dashGap + dashSpace;
@@ -157,7 +164,7 @@ distance += totalGap;
       // canvas.drawPath(path, paint);
     }
     canvas.drawPath(path, paint);
-canvas.clipRect(bgRect);
+//canvas.clipRect(bgRect);
 
   }
 

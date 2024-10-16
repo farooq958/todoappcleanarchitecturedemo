@@ -13,7 +13,7 @@ final TextEditingController nameController=TextEditingController();
 
   final TextEditingController emailController=TextEditingController();
 
-  List<String?> images=[];
+ // List<String?> images=[];
 
    @override
   Widget build(BuildContext context) {
@@ -39,14 +39,14 @@ final TextEditingController nameController=TextEditingController();
                   GestureDetector(
                       onTap: () async {
 
-                     images = await  Data.app.servicePickerLocator<PickFile>().pickImage();
-                        if(images.isNotEmpty)
-                          {
-                            MethodWidgets.instance.snackBar(context,text: 'Images Selected > ${images.length}');
-                          }
-                     setState(() {
-
-                     });
+                      await  TodoController().pickImages();
+                     //    if(images.isNotEmpty)
+                     //      {
+                     //        MethodWidgets.instance.snackBar(context,text: 'Images Selected > ${images.length}');
+                     //      }
+                     // setState(() {
+                     //
+                     // });
                       },
                       child: const Icon(Icons.image,size: 40,)),
                 ],
@@ -54,34 +54,48 @@ final TextEditingController nameController=TextEditingController();
             ),
 
             12.y,
-           images.isNotEmpty? SizedBox(
-              height: 100,
-              //width: 200,
-              child: ListView.separated(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: images.length,
-                itemBuilder: (context, index) {
-                  return DisplayFileImage(
-                    fileImage: images[index].toString(),
-                    onDeleteTap: () {
+           ValueListenableBuilder(
+        valueListenable: TodoController.imagesController,
+             builder: (context,images,child){
 
+               return images.isNotEmpty? SizedBox(
+                  height: 100,
+                  //width: 200,
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: images.length,
+                    itemBuilder: (context, index) {
+                      return DisplayFileImage(
+                        fileImage: images[index].toString(),
+                        onDeleteTap: () {
+
+                        },
+                      );
                     },
-                  );
-                },
-                separatorBuilder:
-                    (BuildContext context, int index) {
-                  return const SizedBox(
-                    width: 5,
-                  );
-                },
-              ),
-            ):const SizedBox(),
-            Center(
-              child: ElevatedButton(
-                onPressed: onSubmit,
-                child: AppText('Submit', style: Styles.circularStdRegular(context),),
-              ),
+                    separatorBuilder:
+                        (BuildContext context, int index) {
+                      return const SizedBox(
+                        width: 5,
+                      );
+                    },
+                  ),
+                ):const SizedBox();
+             }
+           ),
+            ValueListenableBuilder(
+                valueListenable: TodoController.imagesController,
+
+                builder: (context,images,ss) {
+                return Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      onSubmit(images);
+                    },
+                    child: AppText('Submit', style: Styles.circularStdRegular(context),),
+                  ),
+                );
+              }
             ),
 
 
@@ -92,7 +106,7 @@ final TextEditingController nameController=TextEditingController();
     );
   }
 
-  void onSubmit() {
+  void onSubmit(List<String?>images) {
 
 
    if(nameController.text.isNotEmpty && images.isNotEmpty){

@@ -2,7 +2,7 @@
 import 'package:file_picker/file_picker.dart';
 
 class PickFile {
-   Future pickImage() async {
+   Future<List<String?>> pickImage() async {
     // ImagePicker.platform.getImageFromSource(source: ImageSource.camera);
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.image,
@@ -10,7 +10,7 @@ class PickFile {
       allowMultiple: true,
     );
     if (result == null) return [];
-    final images = result.paths;
+    final List<String?> images = result.paths??[];
     return images;
   }
 

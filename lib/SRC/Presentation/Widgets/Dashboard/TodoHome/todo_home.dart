@@ -1,8 +1,11 @@
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/Extensions/responsive_extention.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/imports.dart';
 import 'package:todoappcleanarchitecturedemo/SRC/Data/DataSource/Resources/strings.dart';
+import 'package:todoappcleanarchitecturedemo/SRC/Domain/Model/todomodel.dart';
 
 import 'Components/addDataForm.dart';
 import 'Components/dotted_widget.dart';
@@ -16,6 +19,14 @@ class TodoHome extends StatefulWidget {
 }
 
 class _TodoHomeState extends State<TodoHome> {
+
+  late List<TodoItem> todos=[];
+  @override
+  void initState() {
+    // TODO: implement initState
+    todos =  List.generate(300, (index) => TodoItem(title: "this is tick $index", image: 'image'));
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,34 +34,74 @@ class _TodoHomeState extends State<TodoHome> {
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add Todo',
         onPressed: () async {
-          dynamic i = 1.1;
-          int s = i * i;
+          // dynamic i = 1.1;
+          // int s = i * i;
 
-          // MethodWidgets.instance.dialog(context, child: const AddDataForm());
+           MethodWidgets.instance.dialog(context, child: const AddDataForm());
         },
         child: const Icon(Icons.add),
       ),
 
 
-      body: Column(
-        children: [
-          const SizedBox(height: 50),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CustomPaint(
-              painter: CustomDotMaker(gap: 1, dashedWidth: 20),
-              child: Container(
-                height: 300,
-                width: 200,
-                color: Colors.redAccent.shade100,
-                child: const Center(child: Text('Dotted border')),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 50),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomPaint(
+                painter: CustomDotMaker(gap: 1, dashedWidth: 20),
+                child: Container(
+                  height: 300,
+                  width: 200,
+                  color: Colors.redAccent.shade100,
+                  child: const Center(child: Text('Dotted border')),
+                ),
               ),
             ),
-          ),
-        ],
-          
+        
+             TodoContainer(todo: TodoItem(title: "this is tick", image: 'image'),),
+            "This is simple List view with data".toText(context: context),
 
-        ),
+            SizedBox(
+              height: 400.rSA,
+              child: ListView(
+              //shrinkWrap: true,
+                cacheExtent: 100,
+
+                children:todos.map((todo) {
+                  int  i = todos.indexOf(todo);
+                  print("in simple rebuild called $i ");
+                return   TodoContainer(todo: todo);
+
+                }).toList()
+
+              ),
+            ),
+
+            "Simple  List finished".toText(context: context
+            ),
+            "This is List view builder with data".toText(context: context),
+
+            SizedBox(
+              height: 400.rSA,
+              child: ListView.builder(
+
+               // shrinkWrap: true,
+                itemBuilder: (context,index){
+
+                  print("rebuild called at $index");
+                return TodoContainer(todo: todos[index]);
+
+
+              },itemCount: todos.length,),
+            )
+        
+          ],
+            
+        
+          ),
+      ),
 
       );
 

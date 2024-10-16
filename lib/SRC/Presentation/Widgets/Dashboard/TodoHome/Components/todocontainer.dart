@@ -22,27 +22,30 @@ final TodoItem? todo;
       }
       },
       child: Container(
-        width: 200,
+        width: 100,
+        height: 50,
+        
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
          // clipBehavior: Clip.hardEdge,
           child: DottedBorder(
             gap: 10,
-            dashWidth: 10,
+            dashWidth: 30,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
         
               children: [
         
                 AppText(todo!.title, style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 18)),
-                DisplayFileImage(fileImage: todo!.image!, onDeleteTap: (){})
+               // DisplayFileImage(fileImage: todo!.image!, onDeleteTap: (){})
         
               ],
         
             ),
           ),
         ),
-      ),
+      ).marginAll(30),
     );
   }
 }
